@@ -6,77 +6,187 @@ $grey: #cbd5e1;
 $dark-grey: #334155;
 $black: #0f172a;
 
+$small-shadow: 0px 0px 5px 0px rgba(51, 51, 51, 0.8);
+$small-icons: 35px;
+$transition: all 0.2s ease;
+
 body {
     min-height: 100vh;
     display: grid;
     grid-template-columns: minmax(270px, 20%) minmax(400px, 80%);
-    grid-template-rows: 200px 1fr 80px;
+    grid-template-rows: auto 1fr 80px;
     font-family: 'Work Sans', sans-serif;
+}
 
-    header {
-        background-color: aqua;
+header {
+    background-color: $white;
+    padding: 20px;
+    box-shadow: 0px 10px 5px 0px rgba(51, 51, 51, 0.8);
+
+    section {
+        @extend %flex-justify-between;
     }
-    
-    aside {
+    #welcome-sect {
+        margin-top: 30px;
+        img {
+            width: 100px;
+        }
+    }
+
+    form {
+        @extend %flex-align-center;
+        width: 70%;
+        margin-right: 30px;
+
+        button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            margin-right: 5px;
+            cursor: pointer;
+
+            img {
+                width: $small-icons;
+                border: 2px solid transparent;
+                border-radius: 10px;
+                padding: 5px;
+                transition: $transition;
+
+                &:hover {
+                    border-color: $dark-grey;
+                }
+            }
+        }
+
+        input {
+            border: none;
+            border-radius: 50px;
+            padding: 10px;
+            outline: none;
+            flex-grow: 1;
+            background-color: $dark-grey;
+            color: $white;
+            transition: $transition;
+
+            &:focus, &:hover {
+                box-shadow:  $small-shadow;
+            }
+        }
+    }
+
+    div {
+        @extend %flex-align-center;
+        svg {
+            width: $small-icons;
+        }
+
+        img {
+            width: 50px;
+            margin: 0 20px;
+        }
+
+        h2 {
+            font-size: 1rem;
+            min-width: 130px;
+        }
+    }
+
+    div>div {
+        display: block;
+    }
+
+    button[type=button] {
         background-color: $dark-grey;
         color: $white;
-        grid-area: 1 / 1 / -1 / 2;
+        border: none;
+        transition: $transition;
         padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin: 0 5px;
 
-        section {
-            margin-bottom: 50px;
+        &:hover {
+            box-shadow: $small-shadow;
+        }
+    }
+}
+
+aside {
+    background-color: $dark-grey;
+    color: $white;
+    grid-area: 1 / 1 / -1 / 2;
+    padding: 10px 20px;
+
+    section {
+        margin-bottom: 50px;
+    }
+
+    .logo-title, .logo-link {
+        @extend %flex-align-center;
+        margin-bottom: 10px;
+    }
+    .logo-title {
+        svg {
+            max-width: 20%;
+            filter: invert(100%);
+            margin-right: 10px;
+        }
+    }
+    .logo-link {
+        cursor: pointer;
+        color: $grey;
+
+        svg {
+            max-width: 10%;
+            filter: invert(100%);
+            margin-right: 30px;
+            margin-left: 10px;
         }
 
-        .logo-title, .logo-link {
-            @extend %flex-center, %clickable;
-            margin-bottom: 10px;
-        }
-        .logo-title {
-            svg {
-                max-width: 20%;
-                filter: invert(100%);
-                margin-right: 10px;
-            }
-        }
-        .logo-link {
-            svg {
-                max-width: 10%;
-                filter: invert(100%);
-                margin-right: 30px;
-                margin-left: 10px;
-            }
+        &:hover {
+            color: $white;
         }
     }
-    
-    main {
-        background-color: azure;
-    }
-    
-    footer {
-        background-color: bisque;
-    }
+}
+
+main {
+    background-color: $grey;
+}
+
+footer {
+    background-color: bisque;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-}
-h2 {
     font-size: 1.8rem;
     text-transform: uppercase;
 }
-h3 {
+h2 {
     font-size: 1.3rem;
     font-weight: 500;
 }
 
-%flex-center {
+.visually-hidden {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
+.profile-picture {
+    border-radius: 50%;
+}
+
+%flex-align-center {
     display: flex;
     align-items: center;
 }
-%clickable {
-    cursor: pointer;
+%flex-justify-between {
+    display: flex;
+    justify-content: space-between;
 }

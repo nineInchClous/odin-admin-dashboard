@@ -5,39 +5,119 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(270px, 20%) minmax(400px, 80%);
-  grid-template-rows: 200px 1fr 80px;
+  grid-template-rows: auto 1fr 80px;
   font-family: "Work Sans", sans-serif;
 }
-body header {
-  background-color: aqua;
+
+header {
+  background-color: #f8fafc;
+  padding: 20px;
+  box-shadow: 0px 10px 5px 0px rgba(51, 51, 51, 0.8);
 }
-body aside {
+header #welcome-sect {
+  margin-top: 30px;
+}
+header #welcome-sect img {
+  width: 100px;
+}
+header form {
+  width: 70%;
+  margin-right: 30px;
+}
+header form button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+header form button img {
+  width: 35px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+header form button img:hover {
+  border-color: #334155;
+}
+header form input {
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  outline: none;
+  flex-grow: 1;
+  background-color: #334155;
+  color: #f8fafc;
+  transition: all 0.2s ease;
+}
+header form input:focus, header form input:hover {
+  box-shadow: 0px 0px 5px 0px rgba(51, 51, 51, 0.8);
+}
+header div svg {
+  width: 35px;
+}
+header div img {
+  width: 50px;
+  margin: 0 20px;
+}
+header div h2 {
+  font-size: 1rem;
+  min-width: 130px;
+}
+header div > div {
+  display: block;
+}
+header button[type=button] {
+  background-color: #334155;
+  color: #f8fafc;
+  border: none;
+  transition: all 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+header button[type=button]:hover {
+  box-shadow: 0px 0px 5px 0px rgba(51, 51, 51, 0.8);
+}
+
+aside {
   background-color: #334155;
   color: #f8fafc;
   grid-area: 1/1/-1/2;
   padding: 10px 20px;
 }
-body aside section {
+aside section {
   margin-bottom: 50px;
 }
-body aside .logo-title, body aside .logo-link {
+aside .logo-title, aside .logo-link {
   margin-bottom: 10px;
 }
-body aside .logo-title svg {
+aside .logo-title svg {
   max-width: 20%;
   filter: invert(100%);
   margin-right: 10px;
 }
-body aside .logo-link svg {
+aside .logo-link {
+  cursor: pointer;
+  color: #cbd5e1;
+}
+aside .logo-link svg {
   max-width: 10%;
   filter: invert(100%);
   margin-right: 30px;
   margin-left: 10px;
 }
-body main {
-  background-color: azure;
+aside .logo-link:hover {
+  color: #f8fafc;
 }
-body footer {
+
+main {
+  background-color: #cbd5e1;
+}
+
+footer {
   background-color: bisque;
 }
 
@@ -46,25 +126,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3rem;
-  text-transform: uppercase;
-}
-
-h2 {
   font-size: 1.8rem;
   text-transform: uppercase;
 }
 
-h3 {
+h2 {
   font-size: 1.3rem;
   font-weight: 500;
 }
 
-body aside .logo-title, body aside .logo-link {
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+}
+
+header form, header div, aside .logo-title, aside .logo-link {
   display: flex;
   align-items: center;
 }
 
-body aside .logo-title, body aside .logo-link {
-  cursor: pointer;
+header section {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=styles.css.map */
