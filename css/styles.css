@@ -1,21 +1,70 @@
 @import "normalize.css";
 @import "reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&display=swap");
 body {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(200px, 20%) minmax(400px, 80%);
+  grid-template-columns: minmax(270px, 20%) minmax(400px, 80%);
   grid-template-rows: 200px 1fr 80px;
+  font-family: "Work Sans", sans-serif;
 }
 body header {
   background-color: aqua;
 }
 body aside {
-  background-color: aquamarine;
+  background-color: #334155;
+  color: #f8fafc;
   grid-area: 1/1/-1/2;
+  padding: 10px 20px;
+}
+body aside section {
+  margin-bottom: 50px;
+}
+body aside .logo-title, body aside .logo-link {
+  margin-bottom: 10px;
+}
+body aside .logo-title svg {
+  max-width: 20%;
+  filter: invert(100%);
+  margin-right: 10px;
+}
+body aside .logo-link svg {
+  max-width: 10%;
+  filter: invert(100%);
+  margin-right: 30px;
+  margin-left: 10px;
 }
 body main {
   background-color: azure;
 }
 body footer {
   background-color: bisque;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+body aside .logo-title, body aside .logo-link {
+  display: flex;
+  align-items: center;
+}
+
+body aside .logo-title, body aside .logo-link {
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */
