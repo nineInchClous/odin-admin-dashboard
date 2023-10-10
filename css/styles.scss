@@ -1,1 +1,26 @@
 @import "normalize.css", "reset.css";
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(200px, 20%) minmax(400px, 80%);
+    grid-template-rows: 200px 1fr 80px;
+
+    header {
+        background-color: aqua;
+    }
+    
+    aside {
+        background-color: aquamarine;
+        grid-area: 1 / 1 / -1 / 2;
+    }
+    
+    main {
+        background-color: azure;
+    }
+    
+    footer {
+        background-color: bisque;
+    }
+}
+

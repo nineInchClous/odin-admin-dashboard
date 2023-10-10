@@ -1,2 +1,21 @@
 @import "normalize.css";
-@import "reset.css";/*# sourceMappingURL=styles.css.map */
+@import "reset.css";
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(200px, 20%) minmax(400px, 80%);
+  grid-template-rows: 200px 1fr 80px;
+}
+body header {
+  background-color: aqua;
+}
+body aside {
+  background-color: aquamarine;
+  grid-area: 1/1/-1/2;
+}
+body main {
+  background-color: azure;
+}
+body footer {
+  background-color: bisque;
+}/*# sourceMappingURL=styles.css.map */
