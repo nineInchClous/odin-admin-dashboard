@@ -7,29 +7,32 @@ $dark-grey: #334155;
 $black: #0f172a;
 
 $small-shadow: 0px 0px 5px 0px rgba(51, 51, 51, 0.8);
-$small-icons: 35px;
+$small-icons: 30px;
 $transition: all 0.2s ease;
 
 body {
     min-height: 100vh;
     display: grid;
     grid-template-columns: minmax(270px, 20%) minmax(400px, 80%);
-    grid-template-rows: auto 1fr 80px;
+    grid-template-rows: auto 1fr;
     font-family: 'Work Sans', sans-serif;
+    line-height: 1.2;
 }
 
 header {
     background-color: $white;
     padding: 20px;
-    box-shadow: 0px 10px 5px 0px rgba(51, 51, 51, 0.8);
+    box-shadow: 0px 3px 3px 0 rgba(51, 51, 51, 0.6);
+    position: sticky;
+    top:0;
 
     section {
         @extend %flex-justify-between;
     }
     #welcome-sect {
-        margin-top: 30px;
+        margin-top: 20px;
         img {
-            width: 100px;
+            width: 70px;
         }
     }
 
@@ -78,10 +81,11 @@ header {
         @extend %flex-align-center;
         svg {
             width: $small-icons;
+            cursor: pointer;
         }
 
         img {
-            width: 50px;
+            width: 40px;
             margin: 0 20px;
         }
 
@@ -135,26 +139,129 @@ aside {
     .logo-link {
         cursor: pointer;
         color: $grey;
+        transition: $transition;
+
+        &:hover {
+            color: $white;
+
+            svg {
+                opacity: 1;
+            }
+        }
 
         svg {
             max-width: 10%;
             filter: invert(100%);
             margin-right: 30px;
             margin-left: 10px;
-        }
-
-        &:hover {
-            color: $white;
+            opacity: 0.8;
         }
     }
 }
 
 main {
     background-color: $grey;
-}
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto 1fr;
 
-footer {
-    background-color: bisque;
+    section {
+        padding: 20px;
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+    }
+
+    #projects-sect {
+        grid-area: 1 / 1 / 3 / 2;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: $white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid $black;
+            box-shadow: $small-shadow;
+
+            h3 {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+                text-transform: capitalize;
+            }
+            div {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 10px;
+                svg {
+                    width: $small-icons;
+                    cursor: pointer;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    #annoucements-sect {
+        article {
+            background-color: $white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: $small-shadow;
+
+            div {
+                h3, p {
+                    margin-bottom: 10px;
+                }
+                p {
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid $black;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    max-width: 250px;
+                }
+
+                &:last-of-type p {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+
+    #trending-sect {
+        article {
+            background-color: $white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: $small-shadow;
+
+            .flex-container {
+                display: flex;
+                margin-bottom: 20px;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            img {
+                @extend .profile-picture;
+                width: 50px;
+                margin-right: 20px;
+            }
+            p {
+                text-transform: capitalize;
+            }
+        }
+        
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -167,6 +274,9 @@ h1 {
 h2 {
     font-size: 1.3rem;
     font-weight: 500;
+}
+p {
+    opacity: 0.8;
 }
 
 .visually-hidden {
